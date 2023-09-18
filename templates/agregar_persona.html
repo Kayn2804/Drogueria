@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar un nuevo usuario</title>
+</head>
+<body>
+    <form action="/agregarpersonas" method="post" enctype="multipart/form-data">
+        <h3>CREACIÓN DE UN NUEVO USUARIO</h3>
+        <br><br>
+        <label for="id">Id: </label>
+        <input type="number" required name="id">
+        <label for="msg">{{msg}}</label>
+        <br>
+        <label for="nombre">Nombre: </label>
+        <input type="text" required name="nombre">
+        <br>
+        <label for="estatura"> estatura:</label>
+        <input type="float" required name="estatura">
+        <br>
+        <label for="peso">peso: </label>
+        <input type="number" required name="peso">
+        <br>
+        <label for="fecha">fecha: </label>
+        <input type="date" required name="fecha">
+        <br>
+        <br><br>
+        <input type="submit" value="Guardar">
+        <a href="/">Regresar</a>
+
+    </form>
+</body>
+</html>

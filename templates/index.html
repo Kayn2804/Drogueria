@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de usuarios</title>
+</head>
+<body>
+    <a href="/agregarpersonas">Agregar un nuevo usuario </a>
+    <br><br>
+    <table border>
+        <thead>
+            <tr>
+                <th>Id usuario</th>
+                <th>Nombre</th>
+                <th>estatura</th>
+                <th>peso</th>
+                <th>fecha</th>
+        </thead>
+        <tbody>
+            {% for art in res %}
+                <tr>
+                    <td>{{art[0]}}</td>
+                    <td>{{art[1]}}</td>
+                    <td>{{art[2]}}</td>
+                    <td>{{art[3]}}</td>
+                    <td>{{art[4]}}</td>
+                    <td>
+                        <a onclick="return confirm('¿Seguro elimina este artículo?')" href="borrarpersonas/{{art[0]}}">Eliminar</a>
+                    </td>  
+                    <td>
+                        <a href="/editar/{{art[0]}}">Editar</a>
+                    </td>
+                    
+                     
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
