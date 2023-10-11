@@ -14,8 +14,8 @@
         <input type="number" required name="id">
         <label for="msg">{{msg}}</label>
         <br>
-        <label for="nombre">Nombre: </label>
-        <input type="text" required name="nombre">
+        <label for="nombre">Nombre:</label>
+        <input type="text" required name="nombre" pattern="[A-Za-z ]+" title="El nombre debe contener solo letras y espacios">
         <br>
         <label for="estatura"> estatura:</label>
         <input type="float" required name="estatura">
@@ -23,8 +23,8 @@
         <label for="peso">peso: </label>
         <input type="number" required name="peso">
         <br>
-        <label for="fecha">fecha: </label>
-        <input type="date" required name="fecha">
+        <label for="fecha">Fecha de nacimiento:</label>
+        <input type="date" required name="fecha" min="2006-01-01">
         <br>
         <br><br>
         <input type="submit" value="Guardar">
