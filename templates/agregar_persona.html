@@ -11,7 +11,7 @@
         <h3>CREACIÓN DE UN NUEVO USUARIO</h3>
         <br><br>
         <label for="id">Id: </label>
-        <input type="number" required name="id">
+        <input type="number" required name="id" maxlength="11" pattern="[0-9]{9,11}">
         <label for="msg">{{msg}}</label>
         <br>
         <label for="nombre">Nombre:</label>

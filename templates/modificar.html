@@ -10,7 +10,8 @@
     <h3>Editar Usuario</h3>
     <form action="/editar/{{ usuario[0] }}" method="POST" enctype="multipart/form-data">
         <label for="id">ID:</label>
-        <input type="number" name="id" value="{{ usuario[0] }}" required>
+        <label for="id">ID:</label> 
+        <input type="text" name="id" maxlength="11" pattern="[0-9]{9,11}" value="{{ usuario[0] }}" required>
         <br>
         <label for="nombre">Nombre:</label>
         <input type="text" name="nombre" pattern="[A-Za-z ]+" title="El nombre debe contener solo letras y espacios"
