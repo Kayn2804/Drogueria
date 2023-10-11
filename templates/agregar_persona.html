@@ -18,10 +18,10 @@
         <input type="text" required name="nombre" pattern="[A-Za-z ]+" title="El nombre debe contener solo letras y espacios">
         <br>
         <label for="estatura"> estatura:</label>
-        <input type="float" required name="estatura">
+        <input type="float" required name="estatura" min="1.20" max="2.50">
         <br>
         <label for="peso">peso: </label>
-        <input type="number" required name="peso">
+        <input type="number" required name="peso" min="40" max="150">
         <br>
         <label for="fecha">Fecha de nacimiento:</label>
         <input type="date" required name="fecha" max="2006-10-11">

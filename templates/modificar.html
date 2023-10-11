@@ -18,10 +18,10 @@
         value="{{ usuario[1] }}" required>
         <br>
         <label for="estatura">Estatura:</label>
-        <input type="float" name="estatura" value="{{ usuario[2] }}" required>
+        <input type="float" name="estatura" min="1.20" max="2.50" value="{{ usuario[2] }}" required>
         <br>
         <label for="peso">Peso:</label>
-        <input type="number" name="peso" value="{{ usuario[3] }}" required>
+        <input type="number" name="peso" min="40" max="150"value="{{ usuario[3] }}" required>
         <br>
         <label for="fecha">Fecha:</label>
         <input type="date" name="fecha" max="2006-10-11"
