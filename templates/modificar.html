@@ -13,7 +13,8 @@
         <input type="number" name="id" value="{{ usuario[0] }}" required>
         <br>
         <label for="nombre">Nombre:</label>
-        <input type="text" name="nombre" value="{{ usuario[1] }}" required>
+        <input type="text" name="nombre" pattern="[A-Za-z ]+" title="El nombre debe contener solo letras y espacios"
+        value="{{ usuario[1] }}" required>
         <br>
         <label for="estatura">Estatura:</label>
         <input type="float" name="estatura" value="{{ usuario[2] }}" required>
@@ -22,7 +23,8 @@
         <input type="number" name="peso" value="{{ usuario[3] }}" required>
         <br>
         <label for="fecha">Fecha:</label>
-        <input type="date" name="fecha" value="{{ usuario[4] }}" required>
+        <input type="date" name="fecha" max="2006-10-11"
+         value="{{ usuario[4] }}" required>
         <br>
         <br>
         <input type="submit" value="Guardar Cambios">
