@@ -3,6 +3,7 @@ from flaskext.mysql import MySQL
 from clases import Clases
 from  modificacion import Eliminar
 from datetime import datetime
+import hashlib
 proyecto =  Flask(__name__)
 mysql = MySQL()
 proyecto.config['MYSQL_DATABASE_HOST'] = 'localhost'
@@ -33,9 +34,12 @@ def guardapersonas():
     estatura = request.form['estatura']
     peso = request.form['peso']
     fecha = request.form['fecha']
+    contrasena = request.form['contrasena']
+    cifrada = hashlib.sha512(contrasena.encode("utf-8")).hexdigest()
+    contrasena = cifrada
     if misClientes.buscar(id):
         return render_template("agregar_persona.html",msg="Id de usuario ya existente")
-    misClientes.agregar([id,nombre,estatura,peso,fecha])
+    misClientes.agregar([id,nombre,estatura,peso,fecha,cifrada])
     return redirect("/")
 
 

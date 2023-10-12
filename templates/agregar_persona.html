@@ -10,26 +10,48 @@
     <form action="/agregarpersonas" method="post" enctype="multipart/form-data">
         <h3>CREACIÓN DE UN NUEVO USUARIO</h3>
         <br><br>
-        <label for="id">Id: </label>
-        <input type="number" required name="id" maxlength="11" pattern="[0-9]{9,11}">
+        <label for="tipoDocumento">Tipo de Documento:</label>
+        <select name="tipoDocumento" id="tipoDocumento" required>
+            <option value="cedula">Cédula de Ciudadanía</option>
+            <option value="pasaporte">Pasaporte</option>
+        </select>
+        <br><br>
+        <label for="id">Documento:</label>
+        <input type="text" required name="id" id="documento" maxlength="13" pattern="\d{9,13}">
         <label for="msg">{{msg}}</label>
         <br>
         <label for="nombre">Nombre:</label>
         <input type="text" required name="nombre" pattern="[A-Za-z ]+" title="El nombre debe contener solo letras y espacios">
         <br>
-        <label for="estatura"> estatura:</label>
-        <input type="float" required name="estatura" min="1.20" max="2.50">
+        <label for="estatura">Estatura:</label>
+        <input type="number" required name="estatura" step="0.01" min="1.20" max="2.50">
         <br>
-        <label for="peso">peso: </label>
+        <label for="peso">Peso:</label>
         <input type="number" required name="peso" min="40" max="150">
         <br>
         <label for="fecha">Fecha de nacimiento:</label>
         <input type="date" required name="fecha" max="2006-10-11">
         <br>
+        <label for="contrasena">Contraseña:</label>
+        <input type="password" required name="contrasena" maxlength="8" pattern="[0-9]{8}">
         <br><br>
         <input type="submit" value="Guardar">
         <a href="/">Regresar</a>
 
+        <script>
+
+           const tipoDocumentoSelect = document.getElementById("tipoDocumento");
+            const documentoInput = document.getElementById("documento");
+
+        
+            tipoDocumentoSelect.addEventListener("change", function () {
+                if (tipoDocumentoSelect.value === "cedula") {
+                    documentoInput.maxLength = 9,documentoInput.minLength = 9;
+                } else {
+                    documentoInput.maxLength = 13,documentoInput.minLength = 13 ;
+                }
+            });
+        </script>
     </form>
 </body>
 </html>
