@@ -1,5 +1,6 @@
 from datetime import datetime
 class Clases:
+    
     def __init__(self, mysql):
         self.mysql = mysql
         self.mysql = mysql
@@ -11,6 +12,15 @@ class Clases:
         resultado = self.cursor.fetchall()
         self.conexion.commit()
         return resultado 
+    def ver(self, usuario):
+        sql = "SELECT nombre, contrasena FROM usuarios WHERE nombre=%s"
+        self.cursor.execute(sql, (usuario,))
+        self.conexion.commit()
+
+        
+        
+        
+        
     def agregar(self, usuario):
        sql = f"INSERT INTO usuarios (id, nombre,estatura,peso,fecha,contrasena) \
        VALUES ('{usuario[0]}', '{usuario[1]}', '{usuario[2]}', {usuario[3]}, \

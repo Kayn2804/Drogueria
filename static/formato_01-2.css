@@ -1,0 +1,86 @@
+* 
+{
+    box-sizing: border-box;
+    transition: all 0.3s;
+}
+
+body, html
+{
+    margin: 0;
+    padding: 0;
+}
+
+body
+{
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 13px;
+}
+
+main#cuerpo
+{
+    background-color:#F2F2F2;
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    place-items: center;
+    color: #F2F2F2;
+}
+
+#forma_prueba
+{
+    background-color: #031626;
+    border-radius: 11px;
+    height: 400px;
+    margin: 0;
+    padding: 17px;
+    width: clamp(300px, 92%, 420px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+    #forma_prueba button
+    {
+        background: #59224A;
+        border:solid 1px #eee;
+        border-radius: 3px;
+        font-weight: bold;
+        color: #585759;
+        cursor: pointer;
+        margin: 0;
+        padding: 13px 21px;
+        align-self: flex-end;
+
+    }
+    #forma_prueba input
+    {
+        background-color: #F2F2F2;
+        border: none;
+        border-left: solid 2px #73386F;
+        color: #73386F;
+        margin: 0;
+        padding: 13px 21px;
+        width: 100%;
+
+    }
+    #forma_prueba button:hover
+    {
+        background-color: #BF738F;
+        transform: scale(1.1);
+    }
+    #forma_prueba input:focus
+    {
+        transform: scale(1.1);     
+    }
+    #forma_prueba label
+    {
+        color: #BF738F;
+        display: block;
+        font-size: 0.9em;
+        margin-bottom: 5px;
+    }
+    #forma_prueba .cont-campos
+    {
+        width:100%;
+    }

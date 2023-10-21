@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prototipo 01 | Etiquetado HTML5</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='formato_01-2.css')}}" >
+</head>
+<body>
+
+    <main id="cuerpo">
+
+        <form action="/inicio" id="forma_prueba" method="post"  onsubmit="telon()">
+
+            <div class="cont-campos">
+            <label for="nom_usuario">Tu nombre de usuario</label>
+
+            <input type="text" name="nom_usuario" id="nom_usuario" required>
+            </div>
+             <div class="cont-campos">
+            <label for="clave_usuario">Tu clave secreta</label>
+            <input type="number" name="clave_usuario" id="clave_usuario" inputmode="tel" pattern="[0-9]{10}" required>
+            </div>
+            <button type="submit">ENTRAR</button>
+
+        </form>
+
+
+    </main>
+
+</body>
+</html>

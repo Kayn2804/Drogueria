@@ -1,4 +1,4 @@
-from flask import Flask, redirect,render_template,request,send_from_directory
+from flask import Flask, redirect,render_template,request,send_from_directory,url_for, session
 from flaskext.mysql import MySQL
 from clases import Clases
 from  modificacion import Eliminar
@@ -18,13 +18,35 @@ misModificaciones = Eliminar(mysql)
 
 
 @proyecto.route('/')
+def index2():
+    resultado = misClientes.consultar()
+    return render_template("login 1.html",res=resultado)
+
+@proyecto.route("/inicio")
+def iniciar():
+    return render_template("login 1.html",msg="")
+
+@proyecto.route("/inicio", methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        usuario = request.form['nom_usuario']
+        contrasena = request.form['clave_usuario'] 
+        contrasena_almacenada = misClientes.ver(usuario)  
+        if contrasena_almacenada and contrasena_almacenada == contrasena:
+            session['usuario'] = usuario
+            return render_template("login 1.html" )
+        else: 
+            return redirect("/616")
+        
+@proyecto.route('/616')
 def index():
     resultado = misClientes.consultar()
-    return render_template("index.html",res=resultado)
-
+    return render_template("index.html",res=resultado)        
+        
 @proyecto.route("/agregarpersonas")
-def agregarpersonas():
-    return render_template("agregar_persona.html",msg="")
+def newperson():
+    return render_template("agregar_persona.html")
+  
 
 
 @proyecto.route("/agregarpersonas",methods=['POST'])
@@ -55,7 +77,7 @@ def borrarpersonas(id):
         modificacion = "eliminacio"
         fecha = fecha_eliminacion
         misModificaciones.eliminar(id, [modificacion, fecha, nombre])
-        return redirect('/')
+        return redirect('/616')
 
 
 @proyecto.route('/editar/<id>')
